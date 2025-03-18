@@ -1,19 +1,13 @@
 import React from 'react';
-import LikeButton from './likebutton'; // Import the LikeButton component
+import LikeButton from './likebutton';
 
-const PostCard = ({ post }) => {
+const PostCard = ({ post, onLikeToggle }) => {
   return (
-    <div className="bg-white shadow-lg rounded-lg p-4 w-80 m-4">
-      <div className="flex items-center mb-4">
-        <img src={post.profilePic} alt={post.username} className="w-12 h-12 rounded-full mr-4" />
-        <span className="font-semibold">{post.username}</span>
-      </div>
-      <div className="mb-4">
-        <p>{post.content}</p>
-      </div>
-      <div className="flex justify-between items-center">
-        <LikeButton />
-      </div>
+    <div className="post-card border rounded-lg p-4 m-2 bg-white shadow">
+      <img src={post.profileImage} alt={`${post.username}'s profile`} className="w-12 h-12 rounded-full" />
+      <h3 className="font-bold">{post.username}</h3>
+      <p>{post.content}</p>
+      <LikeButton isLiked={post.isLiked} onToggle={onLikeToggle} />
     </div>
   );
 };

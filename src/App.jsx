@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './App.css';
-import PostCard from './PostCard'; // Import PostCard component
+import PostCard from './components/postcard';
 
 function App() {
   const [posts, setPosts] = useState([

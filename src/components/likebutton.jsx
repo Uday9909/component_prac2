@@ -1,18 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-const LikeButton = () => {
-  const [liked, setLiked] = useState(false);
-
-  const handleLikeToggle = () => {
-    setLiked(!liked);
-  };
-
+const LikeButton = ({ isLiked, onToggle }) => {
   return (
-    <button
-      onClick={handleLikeToggle}
-      className={`px-4 py-2 rounded-full ${liked ? 'bg-blue-500 text-white' : 'bg-gray-200 text-black'} transition-colors`}
+    <button 
+      onClick={onToggle} 
+      style={{ color: isLiked ? 'red' : 'gray' }}
+      className="like-button"
     >
-      {liked ? 'Liked' : 'Like'}
+      {isLiked ? 'Liked' : 'Like'}
     </button>
   );
 };
